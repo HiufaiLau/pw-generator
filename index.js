@@ -31,7 +31,7 @@ const generatePassword = () => {
         // if checkbox id is spaces
         staticPassword += `  ${staticPassword}  `; // adding space at the beginning & end of staticPassword
       } else {
-        // else pass true value to excludeDuplicate
+        // else pass true value to excludeDuplicate.
         excludeDuplicate = true;
       }
     }
