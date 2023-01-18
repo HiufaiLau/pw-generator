@@ -13,12 +13,18 @@ const characters = {
   symbols: "^!$%&|[](){}:;.,*+-#@<>~",
 };
 
-const generatePassword = () => {
-  let staticPassword = "",
-    randomPassword = "",
-    excludeDuplicate = false,
-    passLength = lengthSlider.value;
+let staticPassword = "",
+  randomPassword = "",
+  excludeDuplicate = false,
+  passLength = lengthSlider.value;
 
+const generatePassword = () => {
+  getCheckboxOptions();
+  getRandomPassword();
+  passwordInput.value = randomPassword; // passing randomPassword to passwordInput value
+};
+
+const getCheckboxOptions = () => {
   options.forEach((option) => {
     // looping through each option's checkbox
     if (option.checked) {
@@ -36,7 +42,9 @@ const generatePassword = () => {
       }
     }
   });
+};
 
+const getRandomPassword = () => {
   for (let i = 0; i < passLength; i++) {
     // getting random character from the static password
     let randomChar =
@@ -53,7 +61,6 @@ const generatePassword = () => {
       randomPassword += randomChar;
     }
   }
-  passwordInput.value = randomPassword; // passing randomPassword to passwordInput value
 };
 
 const upadatePassIndicator = () => {
